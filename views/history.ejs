@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Prime</title>
+
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="manifest" href="./manifest.json">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.css">
+</head>
+<body>
+
+    <div class="menu">
+        <a href="#" onclick = "navOpen()">
+            <img src="icons/menu.svg" alt="menu">
+        </a>
+    </div>
+
+    <div class="nav">
+
+        <a href="#" onclick = "navClose()">
+            <img src="icons/cross.svg" alt="cross">
+        </a>
+
+        <div class="list-items">
+
+            <ul>
+                <li>Home</li>
+                <li class="active">Nutrition History</li>
+                <li>Food Suggestions</li>
+                <li>Exercise Recommendations</li>
+                <li>Settings</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="layer"></div>
+
+    <div class="head" id="nutr_head">
+        <h1>Nutrition<br>History</h1>
+    </div>
+
+    <div class="content-card">
+
+
+
+        <h2 class="heading" id="home">Categories</h2>
+
+        <div class="card" id="cal">
+            <h2>Calories</h2>
+            <canvas id="myChart" width="400" height="400"></canvas>
+        </div>
+
+        <!--
+
+        <div class="card" id="chol">
+            <h2>Cholesterol</h2>
+            <canvas id="myChart" width="400" height="400"></canvas>
+        </div>
+
+
+        <div class="card" id="prot">
+            <h2>Proteins</h2>
+            <canvas id="myChart" width="400" height="400"></canvas>
+        </div>
+        -->
+
+                <!--  <div class="top">
+
+            <h2>Water Reminder</h2>
+
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+
+
+        <form action="" method="">
+                    <label for="interval">Intervals: </label>
+                    <input type="text" name="itrvl">
+
+                    <h3>Duration </h3>
+                <label for="frm">From </label>
+                <input type="text" name="frm">
+                    <label for="to">To </label>
+                    <input type="text" name="to">
+                </form>
+            -->
+        </div> <!-- Content Card end -->
+
+            <div class="cam">
+                <img src="icons/cam.svg" alt="">
+            </div>
+
+            <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+            <script src='./main.js'></script>
+
+
+</body>
+</html>

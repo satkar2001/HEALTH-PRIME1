@@ -1,0 +1,16 @@
+{
+    "name": "Health Prime",
+    "short_name": "Health Prime",
+    "start_url": ".",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#48C791",
+    "theme_color": "#0D1642",
+    "icons": [
+        {
+            "src": "/icons/logo.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        }
+    ]
+}
