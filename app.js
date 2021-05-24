@@ -11,7 +11,7 @@ const mongoose = require('mongoose');
 const route = require('express').Router()
 var FormData = require('form-data');
 
-// serving static files
+// serving static file
 //ok
 app.use(express.static(path.join(__dirname, 'public')));
 
