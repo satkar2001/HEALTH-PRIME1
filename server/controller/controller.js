@@ -14,13 +14,12 @@ exports.home = async (req, res) => {
 exports.exercise=(req,res)=>{
     res.render('exercise');
 }
-exports.nutriinfo=(req,res)=>{
-    res.render('nutriinfo',{p:null,f:null,car:null,cal:null,error:null});
-}
 exports.history=(req,res)=>{
     res.render('history');
 }
-
+// exports.pp=(req,res)=>{
+//     res.sendFile(path.join( __dirname, '.../public', 'index.html' ));
+// }
 
 
 

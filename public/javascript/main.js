@@ -27,11 +27,10 @@ var navClose = () => {
 
 
 (()=>{var ctx = document.getElementById('myChart').getContext('2d');
-const a='dk';
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Calories', 'Fat', 'Sodium', 'Iron'],
+        labels: ['Calories', 'protein', 'carbs', 'Iron'],
         datasets: [{
             label: 'Nutrients',
             data: [12, 19, 3, 10, 2, 3],

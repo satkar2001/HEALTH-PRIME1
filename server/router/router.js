@@ -15,8 +15,9 @@ route.post('/uploadmultiple', store.array('images', 12) , controller.uploads);
 
 route.get('/exercise',controller.exercise);
 
- route.get('/nutriinfo',controller.nutriinfo);
  route.get('/history',controller.history);
+//  route.get('/pp',controller.pp);
+
 //  route.post('/food',controller.food);
 
 // route.post('/uploadfood',controller.uploadfood);
