@@ -11,6 +11,10 @@ const mongoose = require('mongoose');
 const route = require('express').Router()
 var FormData = require('form-data');
 
+
+const uploadRouter = require('./server/router/upload');
+
+
 // serving static file
 //ok
 app.use(express.static(path.join(__dirname, 'public')));
@@ -24,7 +28,10 @@ app.set('views', path.join(__dirname, '/views'))
 // calling routes
 app.use('/', require('./server/router/router'));
 
-app.listen(8080, () => console.log(`Server is stated on http://localhost:8080`));
+app.use('/upload', uploadRouter)
+
+
+app.listen(5000, () => console.log(`Server is stated on http://localhost:5000`));
 
 
 

@@ -5,7 +5,10 @@ var fetch =require('node-fetch');
 const path=require('path');
 const app = express();
 const request = require('request');
+const multer = require('multer')
 
+
+app.use(multer({dest: './uploads/'}).single('image'))
 
 exports.home = async (req, res) => {
     const all_images = await UploadModel.find()
@@ -72,6 +75,63 @@ exports.uploads = (req, res , next) => {
     })
     .catch(err =>{
         res.json(err);
+    })
+
+    var up ='./uploads/';
+    var pic;
+    var fil = fs.readdirSync(up);
+    for(var i in fil) {
+    if(path.extname(fil[i]) === ".jpg") {
+        pic=fil[i];
+        break;
+    }
+    else{
+    console.log('there is no .jpg file in the folder');
+    }
+    }
+    const pict=up+pic;
+
+    
+
+
+    var formdata = new FormData();
+    formdata.append('image',fs.createReadStream(pict));
+
+    
+
+    var requestOptions = {
+    method: 'POST',
+    headers: {
+        'Authorization': ' project f65ba9b5e48979377e5f52e7cf86fb7448a8029f'
+            } ,
+    body: formdata,
+    redirect: 'follow'
+    };
+
+    app.use(upload());
+    var file;
+    var filenm;
+    app.post('/random', (req, res) => {
+         if(req.files){
+          file =req.files.image
+           filenm=file.name;
+          file.mv('./uploads/'+filenm,function(err){
+              if(err)
+              {
+                  res.send(err);
+                  res.render('random',{name:null})
+              }
+              else{
+                    fetch("https://api.logmeal.es/v2/recognition/complete/v0.9", requestOptions)
+                     .then(response => response.json())
+                     .then(result =>{
+                         console.log(result);
+                        const name=result.recognition_results[0].name;
+                         res.render('random',{name});
+                    })
+              }
+          })
+         }
     })
 
 }

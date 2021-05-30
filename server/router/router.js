@@ -19,6 +19,7 @@ route.get('/exercise',controller.exercise);
  route.get('/history',controller.history);
 //  route.post('/food',controller.food);
 
+
 // route.post('/uploadfood',controller.uploadfood);
 
 module.exports = route;

@@ -1,7 +1,80 @@
 <%- include('./partials/header'); %>
 
+<%- include('./partials/nav'); %>
 
-<%- include('./partials/index'); %>
+    <div class="layer"></div>
 
+    <div class="head" id="dash-head">
+        <h1>Hi, Hemanth</h1>
+        <h3>Welcome back. Let's keep you healthy</h3>
+
+        <div class="history-btn">
+            <h2>Your History</h2>
+        </div>
+
+    </div>
+
+    <div class="cc-content">
+        
+        <h2 class="heading" id="home">Quick Glance </h2>
+        <div class='card' id='pic-upload'>
+            <h2>Upload picture of food</h2>
+            <form method='POST' action='/uploadmultiple' enctype="multipart/form-data">
+                <input type="file" name='image' id="img"/>
+                <input type="submit" value="Upload"/>
+            </form>
+        </div>
+
+        <div class="card" id="tod-csmp">
+            <h2>Today's Nutrient Consumption</h2>
+            <canvas id="myChart" width="400" height="400"></canvas>
+        </div>
+
+        <div class="card" id="water-rem">
+
+            <h2>Water Reminder</h2>
+
+            <input id="upTime" type="time">
+            <input id="interval" type="text">
+            <input id="sleepTime" type="time">
+            <button id="alarmButton" onclick="setAlarm(this);">Set Remainder </button>
+            
+            <div id="alarmOptions" style="display: none;">
+                <h2>time to drink water</h2>
+                <button onclick="stopAlarm();">ok</button>
+            </div>
+            
+            <!--  <div class="top">
+                
+                <h2>Water Reminder</h2>
+                
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                    </label>
+                </div>
+                
+                
+                <form action="" method="">
+                    <label for="interval">Intervals: </label>
+                    <input type="text" name="itrvl">
+                    
+                    <h3>Duration </h3>
+                    <label for="frm">From </label>
+                <input type="text" name="frm">
+                <label for="to">To </label>
+                    <input type="text" name="to">
+                </form>
+            -->
+        </div>
+            
+    </div>
+        
+    <div class="cam">
+        <img src="icons/cam.svg" alt="">
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script src='javascript/main.js'></script>
 
 <%- include('./partials/footer'); %>
