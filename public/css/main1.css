@@ -1,0 +1,316 @@
+body {
+	background-color: #213d48;
+	color: white;
+	font-family: "Lato", sans-serif;
+	font-weight: 300;
+}
+
+ul {
+	list-style-type: none;
+	padding-left: 0;
+}
+.menu {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 2em;
+	margin-top: 1em;
+  }
+
+  .menu img {
+	float: right;
+  }
+
+  .layer {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	background: black;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	opacity: 0%;
+	display: none;
+	-webkit-animation: opacity 4s ease-in-out;
+			animation: opacity 4s ease-in-out;
+  }
+
+  .nav {
+	background-color: #84543A;
+	height: 100%;
+	width: 60%;
+	position: fixed;
+	top: 0;
+	right: 0;
+	z-index: 3;
+	padding: 0 2em;
+	left: 100%;
+	-webkit-transition: left .4s ease-in-out;
+	transition: left .4s ease-in-out;
+  }
+
+  .nav img {
+	float: right;
+	margin-top: 3em;
+	position: relative;
+  }
+
+  .nav .list-items {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+		-ms-flex-align: center;
+			align-items: center;
+	height: 100%;
+  }
+
+  .nav ul li {
+	list-style-type: none;
+	color: white;
+	font-weight: 600;
+	margin: 3em 0;
+	text-align: right;
+  }
+
+  .nav ul li.active {
+	color: #75FFC3;
+		header {
+			background-color: #2d5362;
+			text-align: center;
+		}
+	}
+
+.card {
+	background-color: #FDFDFD !important;
+	margin: 2em 0;
+	padding: 1.2em;
+	color: black;
+	border-radius: 12px;
+	-webkit-box-shadow: 0px 4px 14px rgba(241, 210, 195, 0.5);
+			box-shadow: 0px 4px 14px rgba(241, 210, 195, 0.5);
+  }
+
+  .card h2 {
+	font-size: 1rem;
+	font-weight: 700;
+  }
+
+  .card h3 {
+	font-size: .9rem;
+  }
+
+  .card label {
+	font-size: .8rem;
+  }
+
+  .card p {
+	font-size: .6rem;
+  }
+
+  .card input {
+	width: 25%;
+  }
+
+  .card .main-content {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+		-ms-flex-pack: justify;
+			justify-content: space-between;
+	margin: 1rem 0;
+  }
+
+  .card .main-content * {
+	margin: 0;
+  }
+
+  .card .card-list {
+	list-style: none;
+	padding: 0;
+  }
+
+  .card .card-list * {
+	margin: 0;
+  }
+
+  .card .card-list li {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+		-ms-flex-pack: justify;
+			justify-content: space-between;
+	margin: 1rem 0;
+  }
+
+  .pic-card {
+	background-repeat: no-repeat !important;
+	background-size: 22em !important;
+	padding-top: 7.5rem;
+	padding-bottom: .4rem;
+  }
+
+
+.appButton {
+	box-shadow: inset 0 0 15px 3px #23395e;
+	background: linear-gradient(to bottom, #213d48 5%, #415989 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2e466e', endColorstr='#415989',GradientType=0);
+	background-color: #2e466e;
+	border-radius: 17px;
+	border: 1px solid #1f2f47;
+	display: inline-block;
+	cursor: pointer;
+	color: #fff;
+	font-family: Arial;
+	font-size: 15px;
+	padding: 6px 13px;
+	text-decoration: none;
+	text-shadow: 0 1px 0 #263666;
+}
+
+.appButton:hover {
+	background: linear-gradient(to bottom, #415989 5%, #2e466e 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#415989', endColorstr='#2e466e',GradientType=0);
+	background-color :#415989;
+}
+
+.appButton:active {
+	position: relative;
+	top: 1px;
+}
+
+.search-box,
+.close-icon,
+.search-wrapper {
+	position: relative;
+	padding: 10px;
+}
+
+.search-box {
+	width: 500px;
+	border: 1px solid #ccc;
+	outline: 0;
+	border-radius: 15px;
+}
+
+.close-icon {
+	border: 1px solid transparent;
+	background-color: transparent;
+	display: inline-block;
+	vertical-align: middle;
+	outline: 0;
+	cursor: pointer;
+}
+
+.loading-pane {
+	width: 350px;
+	height: 350px;
+	position: fixed;
+	top: 60px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: 0 auto;
+}
+
+.loading-icon {
+	width: 100%;
+	height: 100%;
+}
+
+.close-icon:after {
+	content: "X";
+	display: block;
+	width: 15px;
+	height: 15px;
+	position: absolute;
+	background-color: #fa9595;
+	z-index: 1;
+	right: 35px;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	padding: 2px;
+	border-radius: 50%;
+	text-align: center;
+	color: white;
+	font-weight: normal;
+	font-size: 12px;
+	box-shadow: 0 0 2px #e50F0F;
+	cursor: pointer;
+}
+
+.search-box:not(:valid) ~ .close-icon {
+	display: none;
+}
+
+.foodItem {
+	background-color: #2d5362;
+	color: white;
+	border: 1px solid #2d5362;
+	margin : 3px;
+}
+
+.foodName {
+	width: 290px;
+	display: inline-block;
+}
+
+.calorieValue {
+	width: 100px;
+	display: inline-block;
+}
+
+#body {
+	text-align: center;
+}
+
+#app {
+	display: flex;
+	flex-wrap : wrap;
+}
+
+header,
+#food-options,
+#selected-food,
+#daily-totals {
+	width: 100%;
+}
+
+@media screen and (max-width: 352px){
+	.search-box {
+		width: 210px;
+	}
+}
+
+@media screen and (min-width: 352px){
+	.search-box {
+		width: 270px;
+	}
+}
+
+@media screen and (min-width: 563px){
+	.close-icon {
+		padding-right: 0;
+	}
+}
+
+@media screen and (min-width: 790px){
+	#food-options,
+	#selected-food  {
+		width: 50%;
+	}
+	.search-box {
+		width: 450px;
+	}
+}
+
+@media screen and (min-width: 1050px){
+	#food-options,
+	#selected-food,
+	#daily-totals  {
+		width: 33.3333333333%;
+	}
+}

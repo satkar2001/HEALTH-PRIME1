@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>nutrition log </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.3.3/backbone-min.js" ></script>
+    <script src="javascript/models/food-item.js" defer ></script>
+    <script src="javascript/collections/selected-food-items.js" defer ></script>
+    <script src="javascript/views/selected-food-items-view.js" defer ></script>
+    <script src="javascript/views/total-food-items-view.js" defer ></script>
+    <script src="javascript/views/app-view.js" defer ></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300" rel="stylesheet">
+	<link href="css/main1.css" rel="stylesheet" >
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+	<script src='javascript/main.js'></script>
+	<link rel="manifest" href="manifest.json">
+	<div class="menu">
+		<a href="#" onclick = "navOpen()">
+			<img src="icons/menu.svg" alt="menu">
+		</a>
+	</div>
+	<div class="nav">
+		<a href="#" onclick = "navClose()">
+			<img src="icons/cross.svg" alt="cross">
+		</a>
+		<div class="list-items">
+			<ul>
+				<li><a href="/" style="text-decoration:none;" target="_blank" >home</a></li>
+				<li><a href="/exercise" style="text-decoration:none;" target="_blank" >Exercise Recommendations</a></li>
+				<li class='active'>nutrition log</li>
+				<li><a href="/settings" style="text-decoration:none;" target="_blank">settings</a></li>
+				<li><a href="/history" style="text-decoration:none;" target="_blank">history</a></li>
+			</ul>
+		</div>
+	</div>
+	<script type="text/template" id="fooditem-template">
+		<li class='foodItem'>
+			<span class='foodName'> <%= name %> </span>
+			<span class='calorieValue'> <%= calories %> </span>
+      <span class='proteinValue'><%= protein %> </span>
+      <span class='carbValue'><%= carbs %> </span>
+      <span class='fatValue'><%= fats %> </span>
+		</li>
+	</script>
+</head>
+<body>
+
+<!-- <div id="loading-pane" class="loading-pane">
+	<img src="..." class="loading-icon" />
+</div> -->
+<div class="card" id="tod-csmp">
+	<h2>Today's Nutrient Consumption</h2>
+	<canvas id="myChart" width="300" height="300"></canvas>
+</div>
+<script>
+	$(document).ready(function(){
+		  $( "#loading-pane" ).hide();
+		$( document ).ajaxStart(function() {
+		  $( "#loading-pane" ).show();
+		});
+		$( document ).ajaxComplete(function() {
+		  $( "#loading-pane" ).hide();
+		});
+	});
+</script>
+
+</body>
+</html>

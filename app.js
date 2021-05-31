@@ -28,13 +28,10 @@ app.set('views', path.join(__dirname, '/views'))
 // calling routes
 app.use('/', require('./server/router/router'));
 
-app.use('/upload', uploadRouter)
-
-
-app.listen(5000, () => console.log(`Server is stated on http://localhost:5000`));
-
-
-
+app.get('/nutriinfo',function( req, res ) {
+    res.sendFile(path.join( __dirname, 'public', 'pp.html' ));
+  });
+app.listen(8080, () => console.log(`Server is stated on http://localhost:8080`));
 
 
 //foodnutri
