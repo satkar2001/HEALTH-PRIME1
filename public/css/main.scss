@@ -13,11 +13,11 @@ html, body {
     padding: 0;
     margin: 0;
     font-family: Nunito;
+    min-height: 100%;
 }
   
 body {
   background: linear-gradient(180deg, #FFC9AA 0%, #FFF7F6 46.14%);
-
 }
 
 .start-page {
@@ -355,12 +355,13 @@ body {
 
 .content-card {
   background-color: #FEF6F4;
-  position: absolute;
+  position: relative;
   width: 100%;
   height: 100%;
   border-radius: 30px 30px 0 0;
   padding: 2em 0;
   margin-top:-5em;
+  //overflow: scroll;
 }
 
 .analysis {
@@ -391,6 +392,32 @@ h3 {
   font-weight: 600;
   font-size: 1rem;
 }
+
+// For collpsible exercise dropdowns
+
+button.collapsible {
+  width: 100%;
+  background: $card-color; //#ffd2b8;
+  border: none;
+  padding: 1rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  text-transform: capitalize;
+  box-shadow: 0px 4px 14px rgba(241, 210, 195, 0.5);
+  margin-top: 1.2rem;
+}
+
+button.active {
+  background-color: $card-shadow-color;
+  box-shadow: none;
+}
+
+.contentcollaps {
+  display: none;
+}
+
+
+// For cards
 
 .card {
     background-color: $card-color !important;
@@ -536,6 +563,7 @@ div#water-rem {
   border-radius: 100px;
   width: 4em;
   height: 4em;
+  box-shadow: 0px 4px 14px #6dd8aa;
   z-index: 1;
 
   img {
