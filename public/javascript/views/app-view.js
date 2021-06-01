@@ -26,7 +26,7 @@
         },
         // `render()` now introduces a button to add a new list item.
         render: function() {
-            $(this.el).append("<main id='app'><header> <h1>food log and nutrition graph </h1> <form><input type='text' placeholder='Search' name='focus' class='search-box' id='search-val'>  <button type='button' class='appButton' id='search' > Search </button> <button class='appButton' id='clear' > Clear </button>  </form> </header><div id='food-options'> <h2> Food Search Results </h2> <ul id='search-results'> </ul> </div><div id='selected-food'> <h2> Selected Food Items </h2> <ul id='selected-items'> </ul> </div><div id='daily-totals'> <h2> Daily Totals </h2> <table id='totals-by-day'> </table></div><div id='hii'> </div>  </main>");
+            $(this.el).append("<main id='app'><header> <h1>log your today's diet </h1> <form><input type='text' placeholder='Search' name='focus' class='search-box' id='search-val'>  <button type='button' class='appButton' id='search' > Search </button> <button class='appButton' id='clear' > Clear </button>  </form> </header><div id='food-options'> <h2> Food Search Results </h2> <ul id='search-results'> </ul> </div><div id='selected-food'> <h2> Selected Food Items </h2> <ul id='selected-items'> </ul> </div><div id='daily-totals'> <h2> Daily Totals </h2> <table id='totals-by-day'> </table></div><div id='hii'> </div>  </main>");
         },
         getJSONResults: function() {
             self.clearResults();
