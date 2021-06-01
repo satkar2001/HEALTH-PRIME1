@@ -419,6 +419,10 @@ button.active {
   display: none;
 }
 
+main#app {
+  margin: 0 2em;
+}
+
 .card {
   background-color: #FDFDFD !important;
   margin: 2em 0;
