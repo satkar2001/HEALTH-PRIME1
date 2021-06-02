@@ -1,7 +1,89 @@
 <%- include('./partials/header'); %>
 
+<%- include('./partials/nav'); %>
 
-<%- include('./partials/index'); %>
+<div class="wrapper">
+ <div> <h1>Health Prime</h1></div>
+
+  <h2>Snap a photo of your food & upload for a nutritional breakdown.</h2>
+
+  <form action="#">
+    <input type="file" id="filename" placeholder="Filename" size="100"/>
+    <button onclick="predict_click($('#filename').val(), 'file'); return false;">Get my Nutritional Breakdown!</button>
+  </form>
+
+  <div id="predictions">
+    <div class="food-photo">
+      <div class="step"><span>1</span> Upload a Photo</div>
+    </div>
+    <div class="nutrition">
+      <div class="step"><span>2</span> Get a Nutritional Breakdown</div>
+      <div id="concepts"></div>
+    </div>
+  </div>
+
+  <!-- <section class="section my-4">
+      <div class="container text-center">
+          <div class="title py-5">
+              <h1>Health Prime</h1>
+              <p></p>
+              <p></p>
+              <p class="subtitle"> choose images of food you had <strong>today</strong>  </p>
+          </div>
+          <div class="row justify-content-center">
+              <div class="col-4">
+                  <form action="/uploadmultiple" enctype="multipart/form-data" method="POST">
+                      <div class="row">
+                          <div class="col-8">
+                              <input type="file" class="form-control" name="images" id="formFile" multiple>
+                          </div>
+                          <div class="col-2">
+                              <input type="submit" class="btn btn-warning" value="Upload Images">
+                          </div>
+                      </div>
+                  </form>
+              </div>
+          </div>
+          <section class="mt-5">
+              <div class="row"> -->
+
+                  <!-- <div class="col-3">
+                          <div class="card shadow" style="width: 20rem; height:20rem">
+                              <img src='/images/plate_bg.png' class="card-img-top" class="img-fluid" alt="..." width="150 px" height="150 px">
+                              <div class="card-body">
+                                  <h5 class="card-title font-poppins">food name:</h5>
+                                  <p class="text-secondary font-size-09">nutrients.</p>
+                                  <a href="#" class="btn btn-info font-size-09 text-light">Read More</a>
+                              </div>
+                          </div>
+                  </div>
+
+              </div>
+          </section>
+      </div>
+  </section> -->
+
+   <div class="card" id="tod-csmp">
+      <h2>Today's Nutrient Consumption</h2>
+      <canvas id="myChart" width="400" height="400"></canvas>
+  </div>
+
+  <div class="card" id="water-rem">
+      <h1>water reminder</h1>
+      <input id="alarmTime" type="datetime-local">
+      <button id="alarmButton" onclick="setAlarm(this);">Set Reminder </button>
+
+      <div id="alarmOptions" style="display: none;">
+          <h2>time to drink water</h2>
+          <button onclick="stopAlarm();">ok</button>
+      </div>
+      <script src='javascript/alarm.js'></script>
+  </div>
+
+</div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+  <script src='javascript/main.js'></script>
+
 
 
 <%- include('./partials/footer'); %>
