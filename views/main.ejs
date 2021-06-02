@@ -69,16 +69,42 @@
   </div>
 
   <div class="card" id="water-rem">
-      <h1>water reminder</h1>
-      <input id="alarmTime" type="datetime-local">
-      <button id="alarmButton" onclick="setAlarm(this);">Set Reminder </button>
 
-      <div id="alarmOptions" style="display: none;">
-          <h2>time to drink water</h2>
-          <button onclick="stopAlarm();">ok</button>
-      </div>
-      <script src='javascript/alarm.js'></script>
-  </div>
+    <h2>Water Reminder</h2>
+
+    <input id="upTime" type="time">
+    <input id="interval" type="text">
+    <input id="sleepTime" type="time">
+    <button id="alarmButton" onclick="setAlarm(this);">Set Remainder </button>
+    
+    <div id="alarmOptions" style="display: none;">
+        <h2>time to drink water</h2>
+        <button onclick="stopAlarm();">ok</button>
+    </div>
+    
+    <!--  <div class="top">
+        
+        <h2>Water Reminder</h2>
+        
+        <label class="switch">
+            <input type="checkbox">
+            <span class="slider round"></span>
+            </label>
+        </div>
+        
+        
+        <form action="" method="">
+            <label for="interval">Intervals: </label>
+            <input type="text" name="itrvl">
+            
+            <h3>Duration </h3>
+            <label for="frm">From </label>
+        <input type="text" name="frm">
+        <label for="to">To </label>
+            <input type="text" name="to">
+        </form>
+    -->
+</div>
 
 </div>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
