@@ -33,7 +33,6 @@
 				<li><a href="/exercise" style="text-decoration:none;" target="_blank" >Exercise Recommendations</a></li>
 				<li class='active'>nutrition log</li>
 				<li><a href="/settings" style="text-decoration:none;" target="_blank">settings</a></li>
-				<li><a href="/history" style="text-decoration:none;" target="_blank">history</a></li>
 			</ul>
 		</div>
 	</div>
@@ -48,14 +47,14 @@
 	</script>
 </head>
 <body>
-
+	<div class="card" id="tod-csmp">
+		<h2>Today's Nutrient Consumption</h2>
+		<canvas id="myChart" width="300" height="300"></canvas>
+		</div>
 <!-- <div id="loading-pane" class="loading-pane">
 	<img src="..." class="loading-icon" />
 </div> -->
-<div class="card" id="tod-csmp">
-	<h2>Today's Nutrient Consumption</h2>
-	<canvas id="myChart" width="300" height="300"></canvas>
-</div>
+
 <script>
 	$(document).ready(function(){
 		  $( "#loading-pane" ).hide();
