@@ -11,6 +11,10 @@ const mongoose = require('mongoose');
 const route = require('express').Router()
 var FormData = require('form-data');
 
+
+const uploadRouter = require('./server/router/upload');
+
+
 // serving static file
 //ok
 app.use(express.static(path.join(__dirname, 'public')));
@@ -31,9 +35,6 @@ app.get('/calorieintake',function( req, res ) {
     res.sendFile(path.join( __dirname, 'public', 'cr.html' ));
   });
 app.listen(8080, () => console.log(`Server is stated on http://localhost:8080`));
-
-
-
 
 
 //foodnutri

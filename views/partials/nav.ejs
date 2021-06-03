@@ -1,0 +1,73 @@
+<div class="menu">
+    <a href="#" onclick = "navOpen()">
+        <img src="icons/menu.svg" alt="menu">
+    </a>
+</div>
+<div class="nav">
+    <a href="#" onclick = "navClose()">
+        <img src="icons/cross.svg" alt="cross">
+    </a>
+    <div class="list-items">
+        <ul>
+            <li class="active">Home</li>
+            <li><a href="/exercise" style="text-decoration:none;" >Exercise Recommendations</a></li>
+            <li><a href="/nutriinfo" style="text-decoration:none;" target="_blank">Food nutrition</a></li>
+            <li><a href="/settings" style="text-decoration:none;" target="_blank">settings</a></li>
+            <li><a href="/history" style="text-decoration:none;" target="_blank">history</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="layer"></div>
+
+<script type="text/javascript">
+
+    var alarmSound = new Audio();
+    alarmSound.src = './alarm.mp3';
+    var alarmTimer;
+
+    function setAlarm(button) {
+        var ut = document.getElementById('upTime').value;
+        var dt = document.getElementById('sleepTime').value;
+        var int = document.getElementById('interval').value;
+
+        button.innerText = 'Cancel reminder';
+        button.setAttribute('onclick', 'cancelAlarm(this);');
+
+        alarmTimer = setInterval(initAlarm, int*1000);
+        
+
+    };
+
+    function cancelAlarm(button) {
+        clearInterval(alarmTimer);
+        button.innerText = 'Set remainder';
+        button.setAttribute('onclick', 'setAlarm(this);')
+    };
+    
+    function initAlarm() {
+
+        var today = new Date()
+        var dt = document.getElementById('sleepTime').value;
+        let index = dt.indexOf(':')
+        var sleepHr = dt.slice(0, index)
+        var sleepMin = dt.slice(index+1)
+        
+        if(sleepHr == today.getHours() && sleepMin == today.getMinutes()){
+            cancelAlarm()
+            console.log("hi")
+        }
+        else {
+            alarmSound.play();
+            document.getElementById('alarmOptions').style.display = '';
+        }
+    };
+    
+    function stopAlarm() {
+        alarmSound.pause();
+        alarmSound.currentTime = 0;
+        document.getElementById('alarmOptions').style.display = 'none';
+    };
+
+</script>
+
