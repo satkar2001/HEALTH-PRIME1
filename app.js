@@ -27,6 +27,9 @@ app.use('/', require('./server/router/router'));
 app.get('/nutriinfo',function( req, res ) {
     res.sendFile(path.join( __dirname, 'public', 'pp.html' ));
   });
+app.get('/calorieintake',function( req, res ) {
+    res.sendFile(path.join( __dirname, 'public', 'cr.html' ));
+  });
 app.listen(8080, () => console.log(`Server is stated on http://localhost:8080`));
 
 

@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Calorie and Macronutrient Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Droid+Sans|Roboto:400,700' rel='stylesheet' type='text/css'>
+    <link href="css/main.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <section id="main">
+      <h1 id="title">Calorie and Macronutrient Calculator</h1>
+      <section class="fitness-goal">
+        <h2>I want to</h2>
+        <button class="bf-goal" type="button" value="lose body fat">lose body fat</button>
+        <button class="mg-goal" type="button "value="gain muscle">gain muscle</button>
+        <button class="ma-goal" type="button" value="maintain weight">maintain wt.</button>
+      </section>
+      <!-- <section class="bf">
+        <h2>I know my body fat percentage</h2>
+        <button class="yes" id="bf" type="button">Yes</button>
+        <button class="no" id="bf" type="button">No</button>
+      </section> -->
+      <!-- <section class="body-fat-yes">
+        <input type="number" id="body-fat" placeholder="Body Fat %">
+        <input type="number" id="weight-yes" placeholder="Weight in lbs.">
+      </section> -->
+      <!-- <section>
+        <button class='no' id='bf' type ='button'>enter details</button>
+      </section> -->
+      <section class='body-fat-no'>
+      <label>Male <input type="radio" name="gender" value="male"></label>
+      <label>Female <input type="radio" name="gender" value="female"></label>
+
+
+        <input type="number" id="age" placeholder="Age" min="1" max="100">
+        <input type="number" id="weight-no" placeholder="Weight in lbs." min="1" max="999">
+
+
+        <input type="number" id="feet" placeholder="Feet" min="1" max="10">
+        <input type="number" id="inches" placeholder="Inches" min="1" max="12">
+       </section>
+      <section class="pa-factor">
+        <h2>I exercise</h2>
+        <label>0 days a week <input type="radio" name="pa" class="pa" value="1.2"></label>
+        <label>1-2 days a week <input type="radio" name="pa" class="pa"  value="1.375"></label>
+        <label>3-4 days a week <input type="radio" name="pa" class="pa" value="1.55"></label>
+        <label>5-6 days a week <input type="radio" name="pa" class="pa" value="1.725"></label>
+        <label>5-7 days a week as an athlete <input type="radio" name="pa" class="pa" value="1.9"></label>
+      </section>
+      <section class="pa-factor">
+        <h2>I eat this amount of meals a day</h2>
+        <input type="number" id="meal-count" placeholder="4" min="1" max="10">
+      </section>
+      <section>
+        <button class="calculate" type="button">Calculate</button>
+      </section>
+      <section class="result">
+        <h2>To <span class="goal-str"></span>, your daily intake should be</h2>
+        <ul class="cals-macs"></ul>
+          <li class="cals"></li>
+          <li class="protein"></li>
+          <li class="carbs"></li>
+          <li class="fats"></li>
+      </section>
+    </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js" type="text/javascript"></script>
+    <script src="javascript/counter.js" type="text/javascript"></script>
+  </body>
+</html>
