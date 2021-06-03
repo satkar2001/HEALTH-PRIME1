@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Prime</title>
+
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="manifest" href="./manifest.json">
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.css">
+	
+	<script src="javascript/models/food-item.js" defer ></script>
+	<script src="javascript/collections/selected-food-items.js" defer ></script>
+	<script src="javascript/views/selected-food-items-view.js" defer ></script>
+	<script src="javascript/views/total-food-items-view.js" defer ></script>
+  <script src="javascript/views/app-view.js" defer ></script>
+  
+</head>
+<body>
+
+    <div class="menu">
+        <a href="#" onclick = "navOpen()">
+            <img src="icons/menu.svg" alt="menu">
+        </a>
+    </div>
+
+    <div class="nav">
+
+        <a href="#" onclick = "navClose()">
+            <img src="icons/cross.svg" alt="cross">
+        </a>
+
+        <div class="list-items">
+
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/nutriinfo" style="text-decoration:none;">Nutrition History</a></li>
+                <li><a href="/calorieintake" style="text-decoration:none;">Nutrition Recommendations</a></li>
+                <li><a href="/exercise" style="text-decoration:none;" >Exercise Recommendations</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="layer"></div>
+
+    <div class="head" id="food_head">
+        <h1>Nutrition<br>Suggestions</h1>
+    </div>
+
+    <div class="content-card">
+  
+      <div class="cc-content">
+
+        <div class="card">
+          <section class="fitness-goal">
+            <h2>I want to</h2>
+            <button class="bf-goal default" type="button" value="lose body fat">lose body fat</button>
+            <button class="mg-goal default" type="button "value="gain muscle">gain muscle</button>
+            <button class="ma-goal default" type="button" value="maintain weight">maintain wt.</button>
+          </section>
+
+          <section class='body-fat-no'>
+            <label>Male <input type="radio" name="gender" value="male"></label>
+            <label>Female <input type="radio" name="gender" value="female"></label>
+
+
+            <input type="number" id="age" placeholder="Age" min="1" max="100">
+            <input type="number" id="weight-no" placeholder="Weight in lbs." min="1" max="999">
+
+
+            <input type="number" id="feet" placeholder="Feet" min="1" max="10">
+            <input type="number" id="inches" placeholder="Inches" min="1" max="12">
+          </section>
+
+          <section class="pa-factor">
+            <h2>I exercise</h2>
+            <div>
+              <label>0 days a week</label>
+              <input type="radio" name="pa" class="pa" value="1.2">
+            </div>
+
+            <div>
+              <label>1-2 days a week</label>
+              <input type="radio" name="pa" class="pa"  value="1.375">
+            </div>
+            
+            <div class="">
+              <label>3-4 days a week</label>
+              <input type="radio" name="pa" class="pa" value="1.55">
+            </div>
+            
+            <div class="">
+              <label>5-6 days a week</label>
+              <input type="radio" name="pa" class="pa" value="1.725">
+            </div>
+            
+            <div class="">
+              <label>5-7 days a week as an athlete</label>
+              <input type="radio" name="pa" class="pa" value="1.9">
+            </div>
+            
+          </section>
+          
+          <section class="pa-factor">
+            <h2>I eat this amount of meals a day</h2>
+            <input type="number" id="meal-count" placeholder="4" min="1" max="10">
+          </section>
+          <section>
+            <button class="calculate" type="button">Calculate</button>
+          </section>
+          <section class="result">
+            <h2>To <span class="goal-str"></span>, your daily intake should be</h2>
+            <ul class="cals-macs"></ul>
+              <li class="cals"></li>
+              <li class="protein"></li>
+              <li class="carbs"></li>
+              <li class="fats"></li>
+          </section>
+
+	    	</div>
+        
+      </div>
+
+    </div> <!-- Content Card end -->
+
+		<div class="cam">
+			<img src="icons/cam.svg" alt="">
+		</div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js" ></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" ></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.3.3/backbone-min.js" ></script>
+		<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+		<script src='javascript/main.js'></script>
+<!-- <div id="loading-pane" class="loading-pane">
+	<img src="..." class="loading-icon" />
+</div> -->
+
+<script>
+  $(document).ready(function(){
+		  $( "#loading-pane" ).hide();
+		$( document ).ajaxStart(function() {
+		  $( "#loading-pane" ).show();
+		});
+		$( document ).ajaxComplete(function() {
+      $( "#loading-pane" ).hide();
+		});
+	});
+</script>
+
+<script src="javascript/counter.js" type="text/javascript"></script>
+
+</body>
+</html>
+
+
+
+
+<!--<!doctype html>
+<html>
+  <head>
+    <title>Calorie and Macronutrient Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Droid+Sans|Roboto:400,700' rel='stylesheet' type='text/css'>
+    <link href="css/main.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <section id="main">
+      <h1 id="title">Calorie and Macronutrient Calculator</h1>
+      
+      <!-- <section class="bf">
+        <h2>I know my body fat percentage</h2>
+        <button class="yes" id="bf" type="button">Yes</button>
+        <button class="no" id="bf" type="button">No</button>
+      </section> -->
+      <!-- <section class="body-fat-yes">
+        <input type="number" id="body-fat" placeholder="Body Fat %">
+        <input type="number" id="weight-yes" placeholder="Weight in lbs.">
+      </section> -->
+      <!-- <section>
+        <button class='no' id='bf' type ='button'>enter details</button>
+      </section> -->
+      
+
+<!--
+      
+
+
+        
+      
+    </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js" type="text/javascript"></script>
+  </body>
+</html>
+-->
