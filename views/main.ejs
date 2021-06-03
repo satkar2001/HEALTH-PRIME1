@@ -2,25 +2,163 @@
 
 <%- include('./partials/nav'); %>
 
+
+<div class="head" id="dash-head">
+    <h1>Hi, Hemanth</h1>
+    <h3>Welcome back. Let's keep you healthy</h3>
+
+    <div class="history-btn">
+        <a href="/nutriinfo">
+            <h2>Your History</h2>
+        </a>
+    </div>
+
+</div>
+
+<div class="cc-content">
+    
+    <h2 class="heading" id="home">Quick Glance </h2>
+
+    <!--
+
+        <video id="player" autoplay></video>
+        <canvas id="canvas" width="320px" height="240px"></canvas>
+        <button id="capture-btn">Capture</button>
+        
+    -->
+
+    <div class='card' id='pic-upload'>
+        <h2>Upload picture of food</h2>
+        
+        <form action="#">
+            <input type="file" id="filename" placeholder="Filename" size="100"/ style="width: 100%">
+            <button onclick="predict_click($('#filename').val(), 'file'); return false;" style="width: 100%; margin-top: 1rem">Get my Nutritional Breakdown!</button>
+        </form>
+           
+
+        <!-- Predictions -->
+        <div id="predictions">
+            <div class="food-photo">
+              <div class="step" id="photoStep">The Photo</div>
+            </div>
+            <div class="nutrition">
+              <div class="step" style="padding-left: 1rem">Nutritional Breakdown</div>
+              <div id="concepts"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="card" id="water-rem">
+        <!--
+        <h2>Water Reminder</h2>
+
+        <input id="upTime" type="time">
+        <input id="interval" type="text">
+        <input id="sleepTime" type="time">
+        <button id="alarmButton" onclick="setAlarm(this);">Set Remainder </button>
+        
+        <div id="alarmOptions" style="display: none;">
+            <h2>time to drink water</h2>
+            <button onclick="stopAlarm();">ok</button>
+        </div>
+        
+    -->
+        <div class="top">
+            
+            <h2>Water Reminder</h2>
+            
+        </div>
+            
+            <label for="interval">Intervals: </label>
+            <input id="interval" type="text" name="itrvl">
+            
+            <h3>Duration </h3>
+            <label for="frm">From </label>
+            <input id="upTime" type="time" name="frm">
+
+            <label for="to">To </label>
+            <input id="sleepTime" type="time" name="to">
+
+            <button id="alarmButton" onclick="setAlarm(this);">Set Remainder </button>
+
+            <div id="alarmOptions" style="display: none;">
+                <h2>time to drink water</h2>
+                <button onclick="stopAlarm();">ok</button>
+            </div>
+
+    </div>
+        
+</div>
+    
+<div class="cam">
+    <img src="icons/cam.svg" alt="">
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+<script src='./main.js'></script>
+
+<script type="text/javascript">
+
+    var alarmSound = new Audio();
+    alarmSound.src = './alarm.mp3';
+    var alarmTimer;
+
+    function setAlarm(button) {
+        var ut = document.getElementById('upTime').value;
+        var dt = document.getElementById('sleepTime').value;
+        var int = document.getElementById('interval').value;
+
+        button.innerText = 'Cancel reminder';
+        button.setAttribute('onclick', 'cancelAlarm(this);');
+
+        alarmTimer = setInterval(initAlarm, int*1000);
+        
+
+    };
+
+    function cancelAlarm(button) {
+        clearInterval(alarmTimer);
+        button.innerText = 'Set remainder';
+        button.setAttribute('onclick', 'setAlarm(this);')
+    };
+    
+    function initAlarm() {
+
+        var today = new Date()
+        var dt = document.getElementById('sleepTime').value;
+        let index = dt.indexOf(':')
+        var sleepHr = dt.slice(0, index)
+        var sleepMin = dt.slice(index+1)
+        
+        if(sleepHr == today.getHours() && sleepMin == today.getMinutes()){
+            cancelAlarm()
+            console.log("hi")
+        }
+        else {
+            alarmSound.play();
+            document.getElementById('alarmOptions').style.display = '';
+        }
+    };
+    
+    function stopAlarm() {
+        alarmSound.pause();
+        alarmSound.currentTime = 0;
+        document.getElementById('alarmOptions').style.display = 'none';
+    };
+
+</script>
+
+
+<!--
+
 <div class="wrapper">
  <div> <h1>Health Prime</h1></div>
 
   <h2>Snap a photo of your food & upload for a nutritional breakdown.</h2>
 
-  <form action="#">
-    <input type="file" id="filename" placeholder="Filename" size="100"/>
-    <button onclick="predict_click($('#filename').val(), 'file'); return false;">Get my Nutritional Breakdown!</button>
-  </form>
+  
 
-  <div id="predictions">
-    <div class="food-photo">
-      <div class="step"><span>1</span> Upload a Photo</div>
-    </div>
-    <div class="nutrition">
-      <div class="step"><span>2</span> Get a Nutritional Breakdown</div>
-      <div id="concepts"></div>
-    </div>
-  </div>
 
   <!-- <section class="section my-4">
       <div class="container text-center">
@@ -61,26 +199,27 @@
               </div>
           </section>
       </div>
-  </section> -->
-
-   <div class="card" id="tod-csmp">
+  </section> 
+  
+  <div class="card" id="tod-csmp">
       <h2>Today's Nutrient Consumption</h2>
       <canvas id="myChart" width="400" height="400"></canvas>
-  </div>
+    </div>
 
   <div class="card" id="water-rem">
+      
+      <h2>Water Reminder</h2>
 
-    <h2>Water Reminder</h2>
-
-    <input id="upTime" type="time">
-    <input id="interval" type="text">
-    <input id="sleepTime" type="time">
+      <input id="upTime" type="time">
+      <input id="interval" type="text">
+      <input id="sleepTime" type="time">
     <button id="alarmButton" onclick="setAlarm(this);">Set Remainder </button>
     
     <div id="alarmOptions" style="display: none;">
         <h2>time to drink water</h2>
         <button onclick="stopAlarm();">ok</button>
     </div>
+-->
     
     <!--  <div class="top">
         
@@ -103,8 +242,8 @@
         <label for="to">To </label>
             <input type="text" name="to">
         </form>
-    -->
-</div>
+    </div>
+-->
 
 </div>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>

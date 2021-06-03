@@ -11,6 +11,9 @@ const hbs = require('express-handlebars');
 
 // routes
 route.get('/', controller.home);
+
+route.get('/login', controller.login);
+
 route.post('/uploadmultiple', store.array('images', 12) , controller.uploads);
 
 route.get('/exercise',controller.exercise);

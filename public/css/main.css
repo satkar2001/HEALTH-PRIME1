@@ -13,6 +13,23 @@ body {
   background: linear-gradient(180deg, #FFC9AA 0%, #FFF7F6 46.14%);
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.nav a {
+  color: white;
+}
+
+button {
+  background-color: #75FFC3;
+  border: none;
+  padding: 1rem;
+  border-radius: 5px;
+  font-weight: 700;
+}
+
 .start-page {
   position: relative;
   top: 0;
@@ -419,8 +436,54 @@ button.active {
   display: none;
 }
 
+video, canvas {
+  display: none;
+}
+
 main#app {
   margin: 0 2em;
+}
+
+.nutrition {
+  position: relative;
+}
+
+.step {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+#photoStep {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  z-index: 2;
+}
+
+.food-photo {
+  background-size: cover;
+  padding: 5rem 1rem 6rem;
+  position: relative;
+  color: white;
+  margin: 1rem 0;
+}
+
+.food-photo:after {
+  content: '';
+  position: absolute;
+  background-color: black;
+  opacity: 55%;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
+#concepts p {
+  font-size: 1rem;
 }
 
 .card {
@@ -511,6 +574,16 @@ div#water-rem .top {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+div#water-rem input {
+  width: 100%;
+  padding: .5rem 0;
+}
+
+div#water-rem button {
+  margin-top: 1.5rem;
+  width: 100%;
 }
 
 div#water-rem .switch {

@@ -10,6 +10,10 @@ const multer = require('multer')
 
 app.use(multer({dest: './uploads/'}).single('image'))
 
+exports.login = async (req, res) => {
+    res.render('login')
+}
+
 exports.home = async (req, res) => {
     const all_images = await UploadModel.find()
     res.render('main', { images : all_images });
