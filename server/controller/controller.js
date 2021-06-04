@@ -7,6 +7,27 @@ const app = express();
 const request = require('request');
 const multer = require('multer')
 
+// Upload User
+function readUser(cb) {
+    var user = fs.readFile(path.join(__dirname, '..', '..', '/public', 'user.json'), (err, fileContent) => {
+        if(err){
+            cb(err)
+        } else {
+            cb(JSON.parse(fileContent))
+        }
+    })
+}
+
+// get data
+function readData(cb) {
+    var user = fs.readFile(path.join(__dirname, '..', '..', '/public', 'db.json'), (err, fileContent) => {
+        if(err){
+            cb(err)
+        } else {
+            cb(JSON.parse(fileContent))
+        }
+    })
+}
 
 app.use(multer({dest: './uploads/'}).single('image'))
 
@@ -14,9 +35,44 @@ exports.login = async (req, res) => {
     res.render('login')
 }
 
+var prot;
+
+exports.postLogin = async (req, res, next) => {
+    
+    
+    readData(data => {
+        //console.log(data.n)
+
+        var usr = req.body.usrname.trim()
+        if(req.body.pwd == data[usr]){
+            console.log("yes")
+            
+            var obj = {
+                "usrname": usr,
+                "pwd": req.body.pwd
+            }
+            
+            fs.writeFile(path.join(__dirname, '..', '..', '/public', 'user.json'), JSON.stringify(obj), (err) => {if(err) console.log(err)})
+            
+            readUser(usr => {
+                prot = user
+            })
+
+            res.redirect('/')
+        }
+        else {
+            console.log("No")
+        }
+        
+    })
+    
+}
+
+exports.user = prot 
+
 exports.home = async (req, res) => {
     const all_images = await UploadModel.find()
-    res.render('main', { images : all_images });
+    res.render('main');
 }
 exports.exercise=(req,res)=>{
     res.render('exercise');

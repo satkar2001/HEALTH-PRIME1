@@ -366,6 +366,10 @@ section.pa-factor div label {
   font-weight: 400;
 }
 
+.appButton {
+  margin-top: 1rem;
+}
+
 #dash-head {
   padding: 12em 2em 2em 2em;
 }

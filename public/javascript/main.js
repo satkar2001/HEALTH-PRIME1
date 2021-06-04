@@ -1,10 +1,3 @@
-if('serviceWorker' in navigator){
-    navigator.serviceWorker.register('/sw.js')
-        .then(() => {
-            console.log("SW Registerd")
-        })
-}
-
 var navOpen = () => {
     var nav = document.getElementsByClassName('nav')[0]
     nav.style.left = '25%';
@@ -14,6 +7,13 @@ var navOpen = () => {
     layer.style.opacity = '40%';
     //console.log(layer)
 }
+
+if('serviceWorker' in navigator){
+    navigator.serviceWorker.register('/sw.js')
+        .then(() => {
+            console.log("SW Registerd")
+        })
+    }
 
 var navClose = () => {
     var nav = document.getElementsByClassName('nav')[0]
@@ -26,7 +26,8 @@ var navClose = () => {
 }
 
 
-(()=>{var ctx = document.getElementById('myChart').getContext('2d');
+(()=>{
+    var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {

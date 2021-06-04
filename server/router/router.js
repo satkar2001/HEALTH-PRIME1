@@ -8,11 +8,11 @@ const app=express();
 var upload=require('express-fileupload');
 const hbs = require('express-handlebars');
 
-
 // routes
 route.get('/', controller.home);
 
 route.get('/login', controller.login);
+route.post('/login', controller.postLogin);
 
 route.post('/uploadmultiple', store.array('images', 12) , controller.uploads);
 
