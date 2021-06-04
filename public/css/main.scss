@@ -20,6 +20,81 @@ body {
   background: linear-gradient(180deg, #FFC9AA 0%, #FFF7F6 46.14%);
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.nav {
+
+  a{
+    color: white;
+  }
+}
+
+button {
+  background-color: $accent-color;
+  border: none;
+  padding: 1rem;
+  border-radius: 5px;
+  font-weight: 700;
+  width: 100%;
+}
+
+// For food suggestions
+
+.fitness-goal {
+
+  button {
+    margin-bottom: 1rem;
+    background-color: #4bc57a;
+    
+    &:not(.inactive) {
+      background-color: $accent-color;
+    }
+  }
+}
+
+.body-fat-no {
+  label {
+    width: 100%;
+  }
+
+  input[type="number"] {
+    width: 98%;
+    padding: .7rem 0;
+    padding-right: .5rem;
+    margin: .5rem 0;
+  }
+}
+
+section.pa-factor {
+  h2 {
+    font-size: 1.2rem !important;
+  }
+
+  input[type="number"] {
+    width: 98%;
+    padding: .7rem 0;
+    padding-right: .1rem;
+    margin: .5rem 0 1rem 0;
+  }
+  
+  div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+    
+    label {
+      font-size: 1rem;
+    }
+  }
+}
+
+
+// Login pages
+
 .start-page {
   position: relative;
   top: 0;
@@ -302,6 +377,12 @@ body {
     }
 }
 
+// app
+
+.appButton {
+  margin-top: 1rem;
+}
+
 #dash-head {
   padding: 12em 2em 2em 2em;
 }
@@ -416,6 +497,63 @@ button.active {
   display: none;
 }
 
+// For camera
+
+video, canvas {
+  display: none;
+}
+
+// For food logger
+
+main#app {
+  margin: 0 2em;
+}
+
+// For image predictor
+
+.nutrition {
+  position: relative;
+}
+
+.step {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+#photoStep {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translate(0, -50%);
+  z-index: 2;
+}
+
+.food-photo {
+  background-size: cover;
+  padding: 5rem 1rem 6rem;
+  position: relative;
+  color: white;
+  margin: 1rem 0;
+
+  &:after {
+    content: '';
+    position: absolute;
+    background-color: black;
+    opacity: 55%;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1;
+  }
+}
+
+#concepts{
+
+  p{
+    font-size: 1rem;
+  }
+}
 
 // For cards
 
@@ -490,6 +628,16 @@ div#water-rem {
         display: flex;
         justify-content: space-between;
         align-items: center;
+    }
+
+    input {
+      width: 100%;
+      padding: .5rem 0;
+    }
+
+    button {
+      margin-top: 1.5rem;
+      width: 100%;
     }
 
     .switch {

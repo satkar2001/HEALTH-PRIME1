@@ -12,8 +12,40 @@ const route = require('express').Router()
 var FormData = require('form-data');
 
 
+
 const uploadRouter = require('./server/router/upload');
 
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded())
+
+// parse application/json
+app.use(bodyParser.json())
+
+//add the manifest
+app.get("/manifest.json", function(req, res){
+  //send the correct headers
+  res.header("Content-Type", "text/cache-manifest");
+  //console.log(path.join(__dirname,"manifest.json"));
+  //send the manifest file
+  //to be parsed bt express
+  res.sendFile(path.join(__dirname,"manifest.json"));
+});
+
+//add the service worker
+app.get("/sw.js", function(req, res){
+  //send the correct headers
+  res.header("Content-Type", "text/javascript");
+  
+  res.sendFile(path.join(__dirname,"sw.js"));
+});
+
+// adding the main.css
+app.get("/main.css", function(req, res){
+  //send the correct headers
+  res.header("Content-Type", "text/css");
+  
+  res.sendFile(path.join(__dirname, 'public', 'css',"main.css"));
+});
 
 // serving static file
 //ok
