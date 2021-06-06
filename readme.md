@@ -1,3 +1,22 @@
+Install Instructions:
+
+1. Clone or download the repo
+2. Navigate to the folder in a terminal
+3. Run command "npm init"
+4. Then run command "npm install"
+5. Then run command "npm run start"
+6. Open chrome and enter "chrome://inspect/#devices"
+7. Make sure that the Discover USB devices checkbox is enabled.
+8. Open the Developer Options screen on your Android. See Configure On-Device Developer Options.
+9. Select Enable USB Debugging.
+10. Connect your Android device directly to your development machine using a USB cable. The first time you do this, you usually see that DevTools has detected an offline device. If you see the model name of your Android device, then DevTools has successfully established the connection to your device. Continue to Step 9.
+11. If your device is showing up as Offline, accept the Allow USB Debugging permission prompt on your Android device.
+12. Open chrome and type and enter "localhost:8080"
+13. An install banner will be shown. Click on install
+14. The app will be installed
+
+
+
 Working instructions:
 
 1. Open the App
